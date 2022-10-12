@@ -46,10 +46,12 @@ body>div{
 
 .btn--size-l{
     padding: 16px 56px;
+    font-size: 18px;
 }
 
 .btn--size-s{
     padding: 8px 36px;
+    font-size: 15px;
 }
 
 .btn--success{
