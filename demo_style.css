@@ -27,6 +27,7 @@ body>div{
     min-width: 120px;
 
     cursor: pointer;
+    opacity: 0.9;
 }
 
 .btn+.btn{
@@ -34,7 +35,7 @@ body>div{
 }
 
 .btn:hover{
-    opacity: 0.8;
+    opacity: 1;
     transition: opacity .2s ease-in-out;
 }
 
