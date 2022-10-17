@@ -16,74 +16,23 @@ body {
     background-color: #333;
 }
 
-.dropdown{
-    width: 250px;
-    font-size: 22px;
-    background-color: #292929;
-    color: #45f3ff;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-
-    position: relative;
-
-}
-
-.dropSelector{
-    width: 100%;
-    height: 40px;
-    border: 2px solid #ff3c7b;
-    border-radius: 7px;
+button{
+    background-color: #ff0551;
+    font-size: 18px;
+    font-weight: 200;
+    border-radius: 8px;
+    padding: 12px 25px;
+    color: #fff;
 
     cursor: pointer;
+    opacity: 0.9;
+
+    box-shadow: hsl(341, 100%, 30%) 3px 3px 0px;
+    transition: transform 200ms, box-shadow 200ms, opacity 200ms ease-in-out;
 }
 
-.dropdown:hover .dropList{
-    opacity: 0.8;
-}
-
-.dropList{
-    width: 100%;
-    border: 2px solid #ff3c7b;
-    border-radius: 7px;
-    background-color: #292929;
-
-    opacity: 0;
-    transition: opacity 1s ease-in-out;
-
-    position: absolute;
-    top: 100%;
-}
-
-.dropValue{
-    padding-left: 5px;
-    cursor: pointer;
-    position: relative;
-}
-
-.dropValue:not(:last-child){
-    border-bottom: 1.75px solid #ff3c7b;
-}
-
-.dropValue:hover{
+button:hover{
+    transform: translate(3px, 3px);
+    box-shadow: #004c00 0 0 0;
     opacity: 1;
-    font-weight: 450;
-}
-
-.dropValue:before{
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 0;
-    background-color: #ff3c7c;
-    z-index: -1;
-
-    transition: width 1s ease-in;
-}
-
-.dropValue:hover:before{
-    width: 100%;
 }
