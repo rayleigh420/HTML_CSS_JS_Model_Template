@@ -16,23 +16,68 @@ body {
     background-color: #333;
 }
 
-button{
-    background-color: #ff0551;
-    font-size: 18px;
-    font-weight: 200;
-    border-radius: 8px;
-    padding: 12px 25px;
-    color: #fff;
-
-    cursor: pointer;
-    opacity: 0.9;
-
-    box-shadow: hsl(341, 100%, 30%) 3px 3px 0px;
-    transition: transform 200ms, box-shadow 200ms, opacity 200ms ease-in-out;
+.form-name{
+    position: relative;
 }
 
-button:hover{
-    transform: translate(3px, 3px);
-    box-shadow: #004c00 0 0 0;
-    opacity: 1;
+.form-name+.form-name{
+    margin-top: 25px;
+}
+
+.form-input{
+    padding: 4px 15px;
+    width: 250px;
+    height: 50px;
+    background-color: #333;
+    color: #eee;
+    font-size: 1em;
+
+    border-radius: 5px;
+    border: 1px solid rgb(255, 255, 255, 0.25);
+    transition: 300ms ease-in-out;
+}
+
+.form-input:focus{
+    border-color: #00dfc4;
+
+}
+
+.form-name:nth-child(1) .form-input:not(:placeholder-shown) + .form-label,
+.form-name:nth-child(1) .form-input:focus + .form-label{
+    font-size: 0.65em;
+    color: #00dfc4;
+    border-left: 1px solid #00dfc4;
+    border-right: 1px solid #00dfc4;
+    
+    top: 0;
+    display: inline-block;
+    padding: 0 15px;
+    background-color: #333;
+}
+
+.form-name:nth-child(2) .form-input:not(:placeholder-shown) + .form-label,
+.form-name:nth-child(2) .form-input:focus + .form-label{
+    font-size: 0.65em;
+    color: #eee;
+    /* border-left: 1px solid #00dfc4;
+    border-right: 1px solid #00dfc4; */
+    
+    top: 0;
+    display: inline-block;
+    padding: 0 15px;
+    background-color: #00dfc4;
+    border-radius: 4px;
+}
+
+.form-label{
+    color: #ff3c7b;
+    font-size: 1em;
+
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 16px;
+
+    pointer-events: none;
+    transition: 500ms ease-in;
 }
