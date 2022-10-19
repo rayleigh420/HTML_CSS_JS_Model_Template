@@ -5,7 +5,10 @@
     margin: 0;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
-    font-weight: 300;
+}
+
+:root{
+    --clr: #222327;
 }
 
 body {
@@ -13,71 +16,144 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-color: #333;
+    background-color: var(--clr);
 }
 
-.form-name{
+.navigation{
+    width: 400px;
+    height: 70px;
+    background-color: #fff;
     position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
 }
 
-.form-name+.form-name{
-    margin-top: 25px;
+.navigation ul{
+    display: flex;
+    width: 350px;
 }
 
-.form-input{
-    padding: 4px 15px;
-    width: 250px;
-    height: 50px;
-    background-color: #333;
-    color: #eee;
-    font-size: 1em;
-
-    border-radius: 5px;
-    border: 1px solid rgb(255, 255, 255, 0.25);
-    transition: 300ms ease-in-out;
+.navigation ul li{
+    list-style: none;
+    position: relative;
+    width: 70px;
+    height: 70px;
+    z-index: 1;
 }
 
-.form-input:focus{
-    border-color: #00dfc4;
-
+.navigation ul li a{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    width: 100%;
+    text-align: center;
+    font-weight: 500;
 }
 
-.form-name:nth-child(1) .form-input:not(:placeholder-shown) + .form-label,
-.form-name:nth-child(1) .form-input:focus + .form-label{
-    font-size: 0.65em;
-    color: #00dfc4;
-    border-left: 1px solid #00dfc4;
-    border-right: 1px solid #00dfc4;
-    
-    top: 0;
-    display: inline-block;
-    padding: 0 15px;
-    background-color: #333;
+.navigation ul li a .icon{
+    position: relative;
+    display: block;
+    line-height: 75px;
+    font-size: 1.5em;
+    text-align: center;
+    transition: 0.5s;
+    color: var(--clr);
+    /* transition: transform 250ms ease-in; */
 }
 
-.form-name:nth-child(2) .form-input:not(:placeholder-shown) + .form-label,
-.form-name:nth-child(2) .form-input:focus + .form-label{
-    font-size: 0.65em;
-    color: #eee;
-    /* border-left: 1px solid #00dfc4;
-    border-right: 1px solid #00dfc4; */
-    
-    top: 0;
-    display: inline-block;
-    padding: 0 15px;
-    background-color: #00dfc4;
-    border-radius: 4px;
+.navigation ul li:hover a .icon{
+    transform: translateY(-32px);
 }
 
-.form-label{
-    color: #ff3c7b;
-    font-size: 1em;
+.navigation ul li a .text{
+    position: absolute;
+    color: var(--clr);
+    font-weight: 400;
+    font-size: 0.75em;
+    letter-spacing: 0.05em;
+    transition: 0.5s;
+    opacity: 0;
+    transform: translateY(20px);
+}
 
+.navigation ul li:hover a .text{
+    opacity: 1;
+    transform: translateY(10px);
+}
+
+.indicator{
+    position: absolute;
+    top: -50%;
+    width: 70px;
+    height: 70px;
+    background-color: #29fd53;
+    border-radius: 50%;
+    border: 6px solid var(--clr);
+    opacity: 0;
+    transition: transform 250ms ease-in-out, opacity 250ms ease-in;
+}
+
+.indicator::before{
+    content: '';
     position: absolute;
     top: 50%;
-    transform: translateY(-50%);
-    left: 16px;
-
-    pointer-events: none;
-    transition: 500ms ease-in;
+    left: -22px;
+    width: 20px;
+    height: 20px;
+    background: transparent;
+    border-top-right-radius: 20px;
+    box-shadow: 1px -10px 0 0 var(--clr);
+    opacity: 0;
 }
+
+.indicator::after{
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: -22px;
+    width: 20px;
+    height: 20px;
+    background: transparent;
+    border-top-left-radius: 20px;
+    box-shadow: -1px -10px 0 0 var(--clr);
+    opacity: 0;
+}
+
+.navigation ul li:hover ~ .indicator{
+    opacity: 1;
+    transform: translateY(-50%);
+}
+
+.navigation ul li:nth-child(1):hover ~ .indicator{
+    transform: translateX(calc(70px * 0));
+}
+
+.navigation ul li:nth-child(2):hover ~ .indicator{
+    transform: translateX(calc(70px * 1));
+}
+
+.navigation ul li:nth-child(3):hover ~ .indicator{
+    transform: translateX(calc(70px * 2));
+}
+
+.navigation ul li:nth-child(4):hover ~ .indicator{
+    transform: translateX(calc(70px * 3));
+}
+
+.navigation ul li:nth-child(5):hover ~ .indicator{
+    transform: translateX(calc(70px * 4));
+}
+
+.navigation ul li:hover ~ .indicator::before{
+    opacity: 1;
+}
+
+.navigation ul li:hover ~ .indicator::after{
+    opacity: 1;
+}
+
